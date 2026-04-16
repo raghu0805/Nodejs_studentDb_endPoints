@@ -1,18 +1,16 @@
 import express from "express";
 import cors from "cors";
 import mysql from "mysql2";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app = express();
 const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "8525",
-    database: "school_db"
-});
+const db = mysql.createConnection(process.env.MYSQL_URL);
 
 db.connect((err) => {
     if (err) {
