@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
         name: "Raghu",
         age: 20,
     }
-    return res.json({ "message": "Hello World", "student": student })
+    return res.send("the endpoints are working")
 })
 
 
